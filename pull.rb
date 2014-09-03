@@ -1,10 +1,11 @@
 #!/usr/bin/ruby
 require 'redditkit'
-cl = RedditKit::Client.new 'TWOJLOGIN','TWOJPASS'
+cl = RedditKit::Client.new 'jasiekbot', 'tajnehaslo'
 npageid = ''
 
+
 loop do
- this_page_links = cl.links 'programming', after: npageid, limit: 100
+ this_page_links = cl.links 'programming', after: npageid, limit: 100, category: 'new'
  this_page_links.results.each do |link|
    puts "#{link.title} posted on #{link.created_at} by #{link.author}"
  end
